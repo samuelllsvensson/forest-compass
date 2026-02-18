@@ -14,7 +14,95 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      atgarder: {
+        Row: {
+          anteckningar: string | null
+          bestand_id: string
+          created_at: string
+          id: string
+          planerat_datum: string | null
+          status: string
+          tidsram: string | null
+          typ: string
+          updated_at: string
+        }
+        Insert: {
+          anteckningar?: string | null
+          bestand_id: string
+          created_at?: string
+          id?: string
+          planerat_datum?: string | null
+          status?: string
+          tidsram?: string | null
+          typ?: string
+          updated_at?: string
+        }
+        Update: {
+          anteckningar?: string | null
+          bestand_id?: string
+          created_at?: string
+          id?: string
+          planerat_datum?: string | null
+          status?: string
+          tidsram?: string | null
+          typ?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "atgarder_bestand_id_fkey"
+            columns: ["bestand_id"]
+            isOneToOne: false
+            referencedRelation: "bestands"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      bestands: {
+        Row: {
+          alder: number | null
+          areal: number | null
+          bonitet: string | null
+          created_at: string
+          geometry: Json
+          id: string
+          namn: string
+          slutenhet: number | null
+          tradslag: string[] | null
+          updated_at: string
+          virkesvolym_per_ha: number | null
+          virkesvolym_totalt: number | null
+        }
+        Insert: {
+          alder?: number | null
+          areal?: number | null
+          bonitet?: string | null
+          created_at?: string
+          geometry?: Json
+          id?: string
+          namn?: string
+          slutenhet?: number | null
+          tradslag?: string[] | null
+          updated_at?: string
+          virkesvolym_per_ha?: number | null
+          virkesvolym_totalt?: number | null
+        }
+        Update: {
+          alder?: number | null
+          areal?: number | null
+          bonitet?: string | null
+          created_at?: string
+          geometry?: Json
+          id?: string
+          namn?: string
+          slutenhet?: number | null
+          tradslag?: string[] | null
+          updated_at?: string
+          virkesvolym_per_ha?: number | null
+          virkesvolym_totalt?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
